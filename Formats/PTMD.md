@@ -20,10 +20,11 @@
 * Notes:
 	* The compression file signature was left in the debug models and found using Signsearch (from the same developer of QuickBMS)
 	* This signature was stripped out of all texture files and was only found by complete accident
-	* Imageepoch used the Dynamic Markov Compression algorithm written about [here](https://plg.uwaterloo.ca/~gvcormac/manuscripts/dmc.pdf)
-	* This format wasn't used much since its inception in 1986
-	* The Tentative Name was originally `Plot Thickens, My Dear` but feedback suggested I name this something more correct
-	* A 6MB texture file was compressed into 200KB
+    * Subject to scrutiny until further tests are performed:
+        * Imageepoch used the Dynamic Markov Compression algorithm written about [here](https://plg.uwaterloo.ca/~gvcormac/manuscripts/dmc.pdf)
+        * This format wasn't used much since its inception in 1986
+        * The Tentative Name was originally `Plot Thickens, My Dear` but feedback suggested I name this something more correct
+        * A 6MB texture file was compressed into 200KB
 	* Contains a PTR Texture file
 * Structure:
 	* 0x08 - This looks like it may be some kind of ID
