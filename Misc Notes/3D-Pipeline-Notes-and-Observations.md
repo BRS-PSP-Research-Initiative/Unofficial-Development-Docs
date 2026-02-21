@@ -29,3 +29,5 @@ This documentation is meant to be a simple way to convey concepts based on my ob
 * The formats used for storing assets are non-standard but do seem to have a fairly strict structure with some having shared general locations of tables and other important data
 
 * Some of the interface elements may be 3D but are viewed as 2D, so any discoveries related to character models should apply here
+
+---
