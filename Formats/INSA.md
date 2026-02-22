@@ -64,6 +64,7 @@
 		* Also where animation data reading starts; see Animation Data Structure section below
 	* 0x2c - Default start value for the calculations at 0x28; varies by file and how many calculations performed
 	* 0x30 - 8 byte end of header
+	* 0x4c (with assistance of Ghidra on main binary) - Animation Data starts getting read here (in engine) but eventually can be found using 0x14 address too
 * Animation Data Structure (Initial section pointed at by 0x14)
 	* 0x00 - See 0x28 for theories on what this is
 	* 0x04 - Address where the Animation Data tied to this section starts

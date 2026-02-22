@@ -26,7 +26,9 @@
         * The Tentative Name was originally `Plot Thickens, My Dear` but feedback suggested I name this something more correct
         * A 6MB texture file was compressed into 200KB
 	* Contains a PTR Texture file
+	* Assuming data is read as 2 byte chunks that get parsed with Bitwise OR of 4 and then moves forward two bytes until it hits 0000 or 0x50 byte chunks have been read
 * Structure:
 	* 0x08 - This looks like it may be some kind of ID
 	* 0x0c - Address to end of file or beginning of padding section (which may contain extra data); expect this to be around 0x400 off of what the file system shows for size
+	* 0x4c - Where data read starts (according to Ghidra decompilation)
 ---

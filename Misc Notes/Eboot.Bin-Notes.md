@@ -30,6 +30,7 @@ This documentation is meant to help with theorizing about how the game was built
 * Game loads Network module (part of why I think there may have been an initial Multiplayer complayer component; see SC_MP notes for more info on this)
 * CZAA sections with `%s` sections - ZLIB compressed data that takes the next string as a parameter and then possibly uses a table or list for the second string (if more than one `%s` exists)
 * 0x00168570 - looks like much of the player's battle data from the VOL archives are loaded here with the different parts from different archives linked together based on model type, sound effects, etc
+* 0x0894b044 - All Model resources share the same general offsets when it comes to their table structures (not necessarily the same parsing mechanisms) - See below Model Resources section for further info
 
 ### Data Types Found
 * Bt* - battle data
@@ -37,7 +38,7 @@ This documentation is meant to help with theorizing about how the game was built
 * Ht* - not sure what this is but it seems to be the base level entity / interface system that other major data types build upon
 * map* - map data
 * lst_* - various lists of data
-* *_tbl / tbl_* - various tables
+* \*_tbl / tbl_\* - various tables
 * fld* . *fld - field data (the area the player runs around in between combat)
 * fld_io_main - main C++ entry point to field loading processes
 * int_* (with a unique one called `int_tarminate`, a misspelling of `terminate`) - state flags to possibly pass to the scripting engine
@@ -48,6 +49,46 @@ This documentation is meant to help with theorizing about how the game was built
 * MS* / MEMSAVE - Memory card save system
 * EGXD / EGTB - haven't found these file types yet in data but can safely assume they are related to Maps / Enemy encounters since they load before BtMapActor
 * page: 8 digit (not sure if bit flags or full letters) memory file of some type - guessing this is 64KB or 8 x 8byte sections
+
+### Model Resources with Shared Table Parser
+* State
+* Stage
+* Mdl (INSM with PTMD data)
+* SM (probably Save Data or System Memory)
+* AI
+* Eff (Effects)
+* Voice (probably mostly for bosses and NPCs)
+* Chr (probably character table data, such as name, gender, etc. for bosses and NPCs)
+* emy (enemy specific tables)
+* trp (Traps?)
+
+### Data Loader Function found at 0x088b0d58 in Ghidra
+* Zlib compressed ZZZ archives byte embedded and encrypted in PTMD data
+* Decompiled code snippet (not exactly 100% accurate but close enough):
+
+```
+void animation_data_loader(int param_1)
+
+{
+    int iVar1;
+    
+    iVar1 = *(int *)(param_1 + 0x4c);
+    *(uint *)(param_1 + 0x2c) = *(uint *)(param_1 + 0x2c) | 4;
+    for (; iVar1 != 0; iVar1 = *(int *)(iVar1 + 0x50)) {
+         animation_data_loader(iVar1);
+    }
+    return;
+}
+```
+* Code takes PTMD or INSA data and does the following to decrypt the data (still somewhat theoretical)
+    * Jump to 0x2c
+    * Bitwise ORs the next 8 or so individual bytes by 4 to create a string (can be longer)
+    * XOR decrypt that string with the decryption key used by the VOL archives
+    * Read lower case string as a file extension type (test showed zzz)
+    * Recursively read the next 0x50 bytes of code from start point (until you hit a 2 byte 0 value and stop)
+    * Read that 0x50 byte section as data for that file type
+    * Extract data based on file type
+    * Repeat process until end of file
 
 ## Update Eboot.Bin
 * Font type used in game: "FTT-NewRodin Pro DB" - is possibly equivalent to [FOT-NewRodin Pro](https://www.cufonfonts.com/font/fot-newrodin-pro) from Fontworks Japan
