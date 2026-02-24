@@ -49,6 +49,24 @@ This documentation is meant to help with theorizing about how the game was built
 * MS* / MEMSAVE - Memory card save system
 * EGXD / EGTB - haven't found these file types yet in data but can safely assume they are related to Maps / Enemy encounters since they load before BtMapActor
 * page: 8 digit (not sure if bit flags or full letters) memory file of some type - guessing this is 64KB or 8 x 8byte sections
+* .cam files are only explicity called in the binary for `chr_p_brs02`, the Player namespaced chr files
+
+### Battle Data Structure
+* State Tables with offsets of 0x10 between sections
+
+### Field IO Game Data Structure
+* 0x300000 - Field IO Game Data
+* 0x0b - Offset to Field Thread data
+
+### Event Handling
+* Heavily uses callbacks to trigger these such as loading 3d and 2d assets with the following general ordering:
+    * Pre
+    * Main
+    * Post
+
+### Misc Findings
+* Test data call found: `../data/effect/battle/efp/ebtest.efp` - this archive isn't found in the game data but instead gets called by a test function; the call wasn't removed from final binary
+* Field Events and Minigames may use the same data buffer in memory
 
 ### Model Resources with Shared Table Parser
 * State
