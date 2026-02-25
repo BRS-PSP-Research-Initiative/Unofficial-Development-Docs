@@ -98,7 +98,8 @@ void animation_data_loader(int param_1)
     return;
 }
 ```
-* Code takes PTMD or INSA data and does the following to decrypt the data (still somewhat theoretical)
+
+* Possibly Debunked - Code takes PTMD or INSA data and does the following to decrypt the data (still somewhat theoretical)
     * Jump to 0x2c
     * Bitwise ORs the next 8 or so individual bytes by 4 to create a string (can be longer)
     * XOR decrypt that string with the decryption key used by the VOL archives
@@ -107,6 +108,14 @@ void animation_data_loader(int param_1)
     * Read that 0x50 byte section as data for that file type
     * Extract data based on file type
     * Repeat process until end of file
+
+### PTMD_parser found at 0x0001052A (need to fully test this)
+* Recursively runs through the PTMD data until any of the following occurs
+    * The address value is 0
+    * The address value is the same as the previous address
+    * The address is outside of the end of the data chunk
+* When any of these are triggered, check the PTMD value at offset 0x40
+    * if not 0, run the value there as a function in the engine
 
 ## Update Eboot.Bin
 * Font type used in game: "FTT-NewRodin Pro DB" - is possibly equivalent to [FOT-NewRodin Pro](https://www.cufonfonts.com/font/fot-newrodin-pro) from Fontworks Japan

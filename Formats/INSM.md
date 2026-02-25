@@ -57,6 +57,7 @@
 	* 0x30 - Address to unknown section
 	* 0x34 - Same as 0x24
 	* 0x3c - Address to Model Data Structure 0 (First one of interest and observed by me)
+    * 0x40 - (Taken from PTMD_parser function found in Eboot.BIN) - if this data is not 0, treat it as an embedded function
 * Model Data Structure (Address found at 0x3c)
 	* 0x00 - Header Contains 0xc7 and some bit flag values
 	* 0x04 <=> 0x0c - Unknown 4-byte values
