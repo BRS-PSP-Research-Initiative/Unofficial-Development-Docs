@@ -20,7 +20,9 @@
 * Notes:
 	* Often found where XTC, XPN and PTMD files are found
 	* First discovered while diving through the menu archives
-* Structure:
+* Header Structure:
 	* 0x04 (2 bytes) - U ID
 
+* Notes on IDs
+    * U ID is shared with an associated PBD at 0x04
 ---

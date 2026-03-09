@@ -98,7 +98,6 @@ void animation_data_loader(int param_1)
     return;
 }
 ```
-
 * Possibly Debunked - Code takes PTMD or INSA data and does the following to decrypt the data (still somewhat theoretical)
     * Jump to 0x2c
     * Bitwise ORs the next 8 or so individual bytes by 4 to create a string (can be longer)
@@ -116,6 +115,17 @@ void animation_data_loader(int param_1)
     * The address is outside of the end of the data chunk
 * When any of these are triggered, check the PTMD value at offset 0x40
     * if not 0, run the value there as a function in the engine
+
+### 3D Pipeline Updates - Courtesy of: https://ameblo.jp/pspdevblog/entry-10012233828.html
+* Shaders, UV Maps, & other static assets that always begin with a set byte value - devs used a bitshift of << 0x8 to save space; then they restored the data at runtime directly from the main executable instead
+    * This includes the matrix transfer commands and other rendering related data
+
+### Shader Masks
+* There are multiple switches in the code; use these for reference: https://github.com/pspdev/pspsdk/blob/800ce356bbe5ac884d87837e7553dfd5f70e4401/src/gu/guInternal.h#L551 & https://ameblo.jp/pspdevblog/entry-10012233828.html
+
+
+### Data Region Offsets
+* 0x206bc - Probably Assets
 
 ## Update Eboot.Bin
 * Font type used in game: "FTT-NewRodin Pro DB" - is possibly equivalent to [FOT-NewRodin Pro](https://www.cufonfonts.com/font/fot-newrodin-pro) from Fontworks Japan

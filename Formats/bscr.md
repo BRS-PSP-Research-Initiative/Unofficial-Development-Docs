@@ -20,6 +20,12 @@
 	* Script Data values can be found in the padding data section; see Script structure section below
 	* Each script file has a somewhat different structure based on purpose
 	* Most of the models use the same scripting structure but EGG and BEE ones are buggy
+    * Memory buffer for each script - 64 bytes in size (unless the script sets it otherwise)
+        * EGG looks like it has different memory allocations based on script called (hence the bugginess above)
+* Implementation:
+    * Parse script file - to allocate memory needed
+    * Zero out data block
+    * Parse again to be used by scripting engine
 * Structure:
 	* 0x04 - 32-byte script file string name; first byte begins with any Ascii character followed by a blank space and then the full name of the bms file in the archive to write the script to
 	* 0x24 - size of file
@@ -27,6 +33,7 @@
 	* 0x34 - Address of scripting payload (You'll see a large chunk of text that includes multiple filenames from this directory and things like _INIT_ACTION_FROM here
 	* 0x38 - Offset from the address that 0x3c leads to; if padding, this is the end of that or end of file
 	* 0x3c - Address to end of scripting string chunk (can be padding, another file format or end of file)
+    * 0xd4 - Address to script buffer size in memory
 * Script Data structure (starting from offsets at 0x2c to 0x34)
 	* 0x00 - 2-byte Offset to next script string chunk (up to where 0x34 points to)
 	* 0x02 - Unknown 2-byte value; usually 0xe0 or 0xe1 (but needs more testing)
