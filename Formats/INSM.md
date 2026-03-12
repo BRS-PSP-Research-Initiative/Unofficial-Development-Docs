@@ -76,3 +76,12 @@
 	* 0x10 - y coordinate (Float)
 	* 0x14 - z coordinate (Float)
 ---
+
+* Parsing Mechanics:
+	1. Use Instruction Key (built into data itself) to jump to section that will be copied into faraway memory buffer
+	2. Copy all data from that point forward to new buffer
+	3. Jump back to Instruction Key
+	4. Decompress 4 bytes every 20 bytes with initial seed up to where copied data is
+	5. Repeat process on copied data
+	6. Once all data has been accounted for, compact it and seed it all over again to build real data
+---
