@@ -91,6 +91,7 @@
 * Name: Packed Bottom-up Data
 * Magic Header: none
 * Purpose: Stream VIF (VFPU Interface Format) or GIF (GU Interface Format) friendly data using a common technique developed for the PS2 Emotion Engine architecture and frequently employed by mostly Japanese developers on the PSP
+* Instruction Code: 0xb
 * Header Structure:
 	* 16-byte zero data; both represents the end of the stream read and tells the game engine how to read and treat the data
 * Footer Structure: (acts as the header in most other formats and always read Bottom to Top)
@@ -103,12 +104,21 @@
 	* 0x30 - 1-byte Instruction Code for current 16-byte data
 	* 0x32 - 14-byte Data chunk
 * Notes:
-	* Observed in the binary:
-		* Data is read as two different streams at the same time from Right to Left
-			1. Reads in 6-byte chunks
-			2. Reads in 1-byte chunks
-		* Most likely packed Vector data due to usage of 3.4028235e+38 as a key and the size of data being read in the first stream
-		* Further notes incoming as more of the binary is parsed
+    * First State Machine mechanism found
+    * Parsing Mechanics:
+        1. Find matching Param2.bin BXCB
+        2. Modify state based on hardcoded seeds in the binary
+        3. Asynchronously read modified BXCB in two streams at once
+            1. reads the current configuration
+            2. most likely reads the implementation
+        4. Generates the Master Key using parts of both streams & a unique PBD provided seed
+        5. Read PBD data in 2 streams:
+            1. 6-byte chunk
+            2. 1-byte chunk
+        6. Use all 4 streams and Master Key to decompress and reconstruct data blob
+        7. Send reconstructed data blob to Assembler
+        8. Assembler builds complete Asset from parts
+
 ---
 
 * Name: Packed Buffer Data
