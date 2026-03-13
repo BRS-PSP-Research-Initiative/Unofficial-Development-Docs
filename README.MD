@@ -22,11 +22,17 @@
 
 ## Navigation
 
-* Disc Map - ad hoc mapping of the data on the game disc based on what archive / files they were found inside of - useful for quickly searching for specific files when modding
-* Formats - notes on the binary data structures of the various file formats found - not the most human readable and improvement suggestions are welcomed
-* Misc Notes - mostly speculative and candid notes from me that are subject to being disproven through testing and observation
-* Models - ad hoc general data collected about various models such as amount of meshes, bones, and other attributes used in their creation meant to be mostly automated and is not completely accurate - 
-	primarily useful for modders that need to know how to properly create custom models within the engine's capabilities
+* Engine
+	* Systems - Specifications for individual systems as a whole entity
+	* Modules - Filetypes found within the systems (by extension)
+	* Formats - Structure of individual pieces of each module
+	* Specifications - Specifications for the engine itself
+* Data
+	* Regions - Region specific notes
+	* Discoveries - Things found that the developers may not have intended
+	* Structures - Individual files found on Disc and within its archives (to assist with navigating files)
+	* Modules - Anything related to individual specific modules on the disc
+* Misc - mostly speculative and candid notes from me that are subject to being disproven through testing and observation
 
 ---
 
