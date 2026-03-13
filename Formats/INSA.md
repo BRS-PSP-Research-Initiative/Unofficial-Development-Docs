@@ -12,11 +12,11 @@
 
 ---
 
-* Name: Internal Node Structure - Animation
+* Name: Internal Node System Animation
 * Type: Data
 * Extension: .anm
 * Header: INSA
-* Purpose: Stores animation and armateur data
+* Purpose: Base level Animation format that could also be tied to Assembly.
 * Notes:
 	* APData - Animation / Physics Data (until loaded into a modeling software, this is just a guess)
 	* Can be embedded inside of an INSM container

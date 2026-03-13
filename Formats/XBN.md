@@ -19,6 +19,7 @@
 * Purpose: Process button data for player interaction with other systems (guess for now; could change later)
 * Notes:
 	* Often found with SDOa and XTC files but not always PTMD
+	* Only found within Boss Cutscene and end of battle data
 * Structure:
 	* 0x18 - X ID
 
