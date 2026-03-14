@@ -13,17 +13,20 @@
 ---
 
 * Name: BRS eXtensive Control Binary
-* Type: Data
+* Type: Management
 * Extension: .bin
 * Header: BXCB
-* Purpose:
-    * Param1.bin - Unknown
-    * Param2.bin - Data driven orchestration in a State Machine
-* Header Structure (shared):
-	* 0x04 - data file size
+* Purpose: Battle Module Control Center
+* System Equivalent:
+    * Field System: SC
+* Header Structure
+	* 0x04 - 4-byte File Size
 	* 0x0c - always 0x20
-* Header Structure (param1.bin):
 	* 0x20 - battle model archive id
-* Header Structure (param2.bin):
-    * 0x10 - 0xB0 - State alteration switchboard; each 4-byte chunk can cause different processes to occur based on which system is driving the data when and why
+* Data Structure:
+    * Configuration Switchboard (0x10 - 0x64)
+    * Debugger (0x200 - 0x231):
+        * 0x04 - 1-byte Visual Indicator where the format specification is same as File Size
+        * 0x18 - 1-byte Debug Code (uses Sony's Controller codes for displaying status)
+
 ---

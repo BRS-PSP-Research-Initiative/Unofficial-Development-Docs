@@ -12,11 +12,13 @@
 
 ---
 
-* Tentative Name: Scripted Skeletal Character Rigging
-* Type: 3D Pipeline Data
+* Name: Self-contained SCRipting module
+* Type: Field Scripting
 * Extension: .ss
 * Header: SSCR
-* Purpose: Controls the animation and armatures for animated 3D Models
+* Purpose: Contains Scripting System names but not Instructions or Implementation data
+* System Equivalent:
+    Battle System: bscr
 * Notes:
 	* This was first discovered on a random hunch while out for food. A quick script to check for vertex values found BRS's model pretty quickly under the `BTL\FLD\FCHR` directory
 	* Often found inside of SC containers
@@ -24,7 +26,6 @@
 	* 0x0c - Scripted Data Section Start
 	* 0x10 - Scripted Data String End Address
 	* 0x14 - Scripted Data Section End Address
-	* 0x18 - SSCR Data End Address (Everything below is padding)
-	* 0x28 + 0x08 (up to address found here) - Values associated with Scripted Data String in 0x2c
-	* 0x2c + 0x08 (up to address found here) - Scripted Data String chunk
+	* 0x18 - Relative Offset to End of Data Chunk
+    * 0x20-0x50 - Possible Padding before Script Names Table
 ---
