@@ -18,7 +18,10 @@
 * Purpose: Stores stage and map data
 * Notes:
 	* Originally found in decrypted and extracted Map VOLs under `GAMEDATA\BTL\MAP`
-* Structure:
-	* Currently Unknown
+* Header Structure:
+    * 0x10 - Address to tail of table at 0x1c
+	* 0x1c - Variable length table starts here with a 0x04 offset between entries
+        * Each entry = mix of PTMD structures & other data types
+        * Length of Table = based on amount of embedded data sections
 
 ---
