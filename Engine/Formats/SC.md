@@ -18,8 +18,8 @@
 * Header: SC
 * Purpose: Field Module Micro and Macro Control Center
 * System Equivalent:
-    * Battle System: BXCB
-* Structure:
+    * Battle System: BXCB (top level SC only)
+* Header Structure:
 	* 0x00 - (2-byte) Magic Number
     * 0x02 - (1-byte) Hierarchy Attribute
 		* Hierarchy (by Bit Flag; rest are internals)
@@ -45,8 +45,9 @@
 	* 0x04 - Internal Container list start - Can be 0x3c; that's a bug that always needs to be read as 0x30
 	* 0x08 - First internal object ends here but not guaranteed to help with any extra extraction
 	* 0x10 - 0x28 - Relative chunk size for each internal SC structure; the binary modifies the value of each one at runtime
+* Notable Data Structures:
 	* 0x180:
         * First major memory blob splits off from here
-        * Only applicable to the Character portions of Field Assets and not the Events
+        * Only applicable to the Character (FCHR) portions of Field Assets and not the Events (FEVT)
 
 ---

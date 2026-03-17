@@ -12,11 +12,11 @@
 
 ---
 
-* Name: Root Top-Level Data Pack
+* Name: Real-Time Data Pack
 * Type: Data archive
 * Extension: .vol
 * Header: RTDP
-* Purpose: Store majory of Battle and Engine System data
+* Purpose: Stores Battle and Engine System Data in a streamable format that allows for rapid Production and loading of contents within
 * Notes:
     * Order of File Names related to stage of Production System and which Format does what based on which System VOL archive is used for
 * Header Structure:

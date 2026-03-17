@@ -12,7 +12,7 @@
 
 ---
 
-This documentation is for aiding in the understanding of how the Battle System handles its Memory allocation.
+This documentation is for aiding in the understanding of how the Field System handles its top-level Memory allocation.
 
 * General Allocation Regions:
     * Data Buffer:
@@ -27,14 +27,12 @@ This documentation is for aiding in the understanding of how the Battle System h
 * Notable Regions:
     * Data Buffer:
         * Top Level SC blob and SSCR scripting region make up the front of this region
-        * Both of these need extensive checking but should be correct:
-            * Pointer 0x206bc - Assets Buffer
-            * Pointer 0x21e74 - Atrac3 Audio Data
+        * Pointer 0x20028 - Atrac3 Audio Data
     * Assets Buffer:
         * 0x0 - Assets Buffer starts here but SC Assets not fully determined yet
         * 0x1d00-0x2000 - Good indication of working with SC data; varies depending on purpose and structure
         * 0x5000+:
             * Special region shared with Battle System
-            * Can also be used as an overflow if SC data is too large (frequently happens)
+            * Can also be used as an overflow if SC data is too large (frequently happens due to most being substantially larger)
 
 ---
