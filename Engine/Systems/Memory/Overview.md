@@ -25,5 +25,7 @@ This documentation is a general overview of the Memory Management System.
         * Currently unknown if file size is related to this aspect of some Formats
         * At least one Format known to use file size as a part of its Magic Number (Format Identifier)
 * Notable Shared Attributes Between Systems:
-    * 0x20000+ Offsets - These are typically Pointers
+    * 0x20000+ Offsets - Usually Pointer Regions within Battle and Field Systems
+    * 0x73ed0 Pointer - Where Field Event sub-System and Minigames System 0x0 Data are stored
+
 ---

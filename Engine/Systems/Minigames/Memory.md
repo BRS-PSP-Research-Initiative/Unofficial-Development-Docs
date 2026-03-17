@@ -1,4 +1,4 @@
-# Field Event Memory Doc
+# Minigames Memory Doc
 
 ---
 
@@ -12,14 +12,13 @@
 
 ---
 
-This documentation is for aiding in the understanding of how the Field System Event implementation handles its Memory allocation.
+This documentation is for aiding in the understanding of how the Field System handles its top-level Memory allocation.
 
 * General Allocation Regions:
     * Data Buffer:
-        * Shared with Minigames System
+        * Shared with Field Event sub-System
 * Notable Regions:
-    * Data Buffer:
     * Assets Buffer:
-        * 0x73e18 - Audio Asset End Flag (can be either 0xffffffff or another value)
+        * 0x232e0 - This offset is an easy tell from Field Event sub-System data
 
 ---
