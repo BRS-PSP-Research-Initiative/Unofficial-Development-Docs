@@ -25,13 +25,15 @@ This documentation is for aiding in the understanding of how the Battle System h
 * Notable Regions:
     * Data Buffer:
         * BXCB Data and Scripting Blob appear at the very beginning
+        * Pointer 0x206bc - Assets Buffer
+        * Pointer 0x21e74 - Atrac3 Audio Data
     * Assets Buffer:
-        * 0x0 - Starts at Data Buffer offset 0x206bc
-        * 0x21a4 - Currently loaded mdl Asset
+        * 0x0 - Start of Assets blob
+        * 0x544 - EDXD Asset
+        * 0x21a4 - Currently loaded MDL Asset
         * 0x5000+:
             * Special region shared with Field System
             * Frequently used for large Asset decompression
             * Can also act as temporary storage for parts of Assembly and Production
-
 
 ---
