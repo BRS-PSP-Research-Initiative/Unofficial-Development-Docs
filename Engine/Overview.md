@@ -31,5 +31,8 @@
         * Each System has its own custom flavor tailored to its needs
 * Notable Implementations:
     * StellaVM - a virtual State Machine that handles System Asset Production based on both a Generic Production and System Specific Pipeline working in unison
+* Known Issues:
+    * Heap allocation implementation is broken in decomp code; will need to be implemented from scratch
+    * Much of the engine code is heavily duplicated between Systems with either slight differences or no changes at all to implementation
 
 ---
