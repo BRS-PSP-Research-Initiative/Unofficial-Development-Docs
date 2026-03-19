@@ -12,14 +12,17 @@
 
 ---
 
-* Name: Player Difficulty paK
-* Type: Data / Container
+* Name: Playable Data Kit
+* Type: Data archive
 * Extension: .pdk
 * Header: PDK
-* Purpose: Stores difficulty related data
+* Purpose: Minigames Module Micro and Macro Control Center
 * Notes:
-	* Found primarily within the Minigames structures
-* Structure:
-	* Currently Unknown
+    * Modified version of Field Event sub-System flavor of SC Format
+* Header Structure:
+	* 0x06 - 4-byte Address to SSCR section
+    * 0x0C:
+        * 4-byte Offset + 0x06 - Address where PDK section ends
+        * Start of 0x4 separated Offset Table for each Section
 
 ---

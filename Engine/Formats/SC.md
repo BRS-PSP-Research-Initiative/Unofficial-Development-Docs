@@ -13,7 +13,7 @@
 ---
 
 * Name: Self Containment
-* Type: Management
+* Type: Management / Data archive
 * Extension: .sc
 * Header: SC
 * Purpose: Field Module Micro and Macro Control Center
