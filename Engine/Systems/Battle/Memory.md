@@ -26,6 +26,10 @@ This documentation is for aiding in the understanding of how the Battle System h
     * Data Buffer:
         * BXCB Data and Scripting Blob appear at the very beginning
         * Pointer 0x206bc - Assets Buffer
+        * Pointer 0x209e5 - Continue Game Flag (Probably shared between Systems)
+        * Pointer 0x21a10 - Projection Matrix Data from Disc
+        * Pointer 0x21538 - Copy of Pointer 0x21a10; Size: 0x64 bytes
+        * Pointer 0x2199c - Assets ID Table (tentative name); Size: 0x70 bytes
         * Pointer 0x21e74 - Atrac3 Audio Data
     * Assets Buffer:
         * 0x0 - Start of Assets blob
