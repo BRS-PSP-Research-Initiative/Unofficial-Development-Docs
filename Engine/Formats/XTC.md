@@ -25,7 +25,10 @@
 	* \b(#) - Button text with event tied to it (such as changing a setting or zooming the camera in or out in the Gallery)
 	* \z(#) - Zone text; zones include time of day variants of game stages
 	* Untyped - Readable but not interactive
-* Structure:
-	* 0x08 - X ID
+* Header Structure:
+    * 0x04 - 4-byte File Size
+	* 0x08 - 4-byte X ID
+    * 0x10:
+        * if not 0xFF / 0x00 - 4-byte Address of main Data Blob
 
 ---
