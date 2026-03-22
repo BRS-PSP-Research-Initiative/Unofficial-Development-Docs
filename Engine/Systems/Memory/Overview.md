@@ -25,6 +25,10 @@ This documentation is a general overview of the Memory Management System.
         * Currently unknown if file size is related to this aspect of some Formats
         * At least one Format known to use file size as a part of its Magic Number (Format Identifier)
 * Notable Shared Attributes Between Systems (Offset from Data Buffer):
+    * 0x64 - Menu Data Heap
+    * 0x80 + 0x12000+ - Atrac3 Data Heap
+    * 0xb0 - Controller Data Heap
+    * 0xa4 - Assets Data Heap
     * 0x20000+ Offsets - Usually Pointer Regions within Battle and Field Systems
     * 0x73ed0 Pointer - Where Field Event sub-System and Minigames System 0x0 Data are stored
 

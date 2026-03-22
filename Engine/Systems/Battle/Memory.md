@@ -25,15 +25,26 @@ This documentation is for aiding in the understanding of how the Battle System h
 * Notable Regions:
     * Data Buffer:
         * BXCB Data and Scripting Blob appear at the very beginning
+        * Pointer 0x20014 - Menu Data
+        * Pointer 0x20030 - Glare Effect Callback
+        * Pointer 0x20034 - Blur Effect Callback
+        * Pointer 0x20050 - RecMsgTask Callback
+        * Pointer 0x20054 - GloDatTask Callback
         * Pointer 0x206bc - Assets Buffer
-        * Pointer 0x209e5 - Continue Game Flag (Probably shared between Systems)
-        * Pointer 0x21a10 - Projection Matrix Data from Disc
-        * Pointer 0x21538 - Copy of Pointer 0x21a10; Size: 0x64 bytes
-        * Pointer 0x2199c - Assets ID Table (tentative name); Size: 0x70 bytes
+        * Pointer 0x209e4 - 4-byte Continue Game Flag (Probably shared between Systems)
+        * Pointer 0x209e8 - 8-byte Input Stream Delimiter
+        * Pointer 0x21538 - 0x64-byte Copy of Pointer 0x21a10
+        * Pointer 0x2159c - 0x400-byte Copy of Pointer 0x21a74
+        * Pointer 0x2199c - 0x70-byte Assets ID Table (tentative name)
+        * Pointer 0x21a10 - 0x64-byte Projection Matrix Data from Disc
+        * Pointer 0x21a74 - 0x400-byte Unknown Data
         * Pointer 0x21e74 - Atrac3 Audio Data
     * Assets Buffer:
         * 0x0 - Start of Assets blob
+        * 0x403 - Menu Data (might be global or shared with other systems)
         * 0x544 - EDXD Asset
+        * 0xe24 - Start of what is most likely the AI Scripting Table
+        * 0x1d4c - Copy of 0xe24
         * 0x21a4 - Currently loaded MDL Asset
         * 0x5000+:
             * Special region shared with Field System

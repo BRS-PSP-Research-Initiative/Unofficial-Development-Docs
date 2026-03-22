@@ -28,6 +28,7 @@ This documentation is for aiding in the understanding of how the Field System ha
     * Data Buffer:
         * Top Level SC blob and SSCR scripting region make up the front of this region
         * Pointer 0x20028 - Atrac3 Audio Data
+        * Pointer 0x20014 - List Data
         * Pointer 0x232e0 - Field Event sub-System
     * Assets Buffer:
         * 0x0 - Assets Buffer starts here but SC Assets not fully determined yet
