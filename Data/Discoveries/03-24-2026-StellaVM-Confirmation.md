@@ -17,10 +17,7 @@
 * Regions Affected: jpn, usa, eur
 * Description: Within the Save System stack, some Tasks for handling Save File transactions and Game Installation are handled with StellaVM byte-compiled Data found in Data on Disc.
 * Current Limitations:
-    * Implementations using exploitable flag have not been found yet
-    * Unknown if Debug implementation tied to it was removed by developers before release
-    * If source can be believed, cannot be exploited on Consumer Grade Hardware without modifications
-    * External tools that can interact with PPSSPP's GPI/GPO Debug Implementation may not be available or functional on platforms other than Windows
+    * Language unknown
 
 ---
 
