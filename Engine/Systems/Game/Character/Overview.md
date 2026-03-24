@@ -1,0 +1,30 @@
+# Character System Overview Doc
+
+---
+
+*Copyright 2025 - Brad D*
+
+*See LICENSE for copyright information.*
+
+*Please include this header and that license for any derivative works.*
+
+*NOTE: Only the documentation, tools and anything that's not directly a part of the game's data fall under this copyright. I don't claim any ownership of the game or any of its assets*
+
+---
+
+This documentation is just a general overview of the Character System.
+
+* Purpose: Handles everything related to Saving and Loading Game Progress from a Memory Card.
+* Real Life Counterpart: Actor (ironically used interchangably in the game's code depending on what System is using that data)
+
+---
+
+## Navigation
+
+    * Player
+    * Enemy
+    * Non-Player
+    * Gimmick
+    * Boss
+
+---
