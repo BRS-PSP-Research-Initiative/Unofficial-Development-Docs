@@ -16,8 +16,11 @@ This documentation is just a general overview of the Event Task sub-System.
 
 * Purpose: Handles performing actions related to System requests in an ordered fashion.
 * Real Life Counterpart: Task Master
-* Notes:
-    * Relies on a Global Callback mechanism that does the following:
+* Types:
+    * C Compiled Task Callback - Found in the Game Binary
+    * StellaVM byte-compiled Task Callback - Found somewhere in the Data archived on Disc
+* Implementations:
+    * C-Compiled Callback Implementation:
         1. Stores a clean copy of previous Task Callback Heap
         2. Allocates Heap of an unspecified size
         3. If heap is empty, do nothing; otherwise continue

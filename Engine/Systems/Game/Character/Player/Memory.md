@@ -1,4 +1,4 @@
-# Battle Memory Doc
+# Player Character Memory Doc
 
 ---
 
@@ -15,23 +15,12 @@
 This documentation is for aiding in the understanding of how the Battle System handles its Memory allocation.
 
 * General Allocation Regions:
-    * Data Buffer:
-        * Shared with Field Memory when switching out of Battle back to the Field
-        * Holds all Data that will be passed to other Systems, most often products of Assembly step
-    * Assets Buffer:
-        * Shared with Field and other Systems related to current Stage
-        * Region where relevant Game Assets from disc are loaded in and stored
-        * Currently unknown how much is preloaded and when
+    * Production:
+    * Assets:
 * Notable Regions:
-    * Data Buffer:
-        * BXCB Data and Scripting Blob appear at the very beginning
-        * Pointer 0x206bc - Assets Buffer
-        * Pointer 0x21538 - 0x64-byte Copy of Pointer 0x21a10
-        * Pointer 0x2199c - 0x70-byte Assets ID Table (tentative name)
-        * Pointer 0x21a10 - 0x64-byte Projection Matrix Data from Disc
-        * Pointer 0x21a74 - 0x400-byte Player Character Data
-        * Pointer 0x21e74 - Atrac3 Audio Data
-    * Assets Buffer:
+    * Production:
+        * Pointer 0x2159c - 0x400-byte Player Character Data
+    * Assets:
         * 0x403 - Menu Data (might be global or shared with other systems)
         * 0x544 - EDXD Asset
         * 0xe24 - Start of what is most likely the AI Scripting Table
