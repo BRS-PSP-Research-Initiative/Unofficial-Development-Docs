@@ -25,7 +25,6 @@ This documentation is for aiding in the understanding of how the Battle System h
 * Notable Regions:
     * Data Buffer:
         * BXCB Data and Scripting Blob appear at the very beginning
-        * Pointer 0x20014 - Menu Data
         * Pointer 0x20030 - Glare Effect Callback
         * Pointer 0x20034 - Blur Effect Callback
         * Pointer 0x20050 - RecMsgTask Callback
@@ -40,7 +39,6 @@ This documentation is for aiding in the understanding of how the Battle System h
         * Pointer 0x21a74 - 0x400-byte Unknown Data
         * Pointer 0x21e74 - Atrac3 Audio Data
     * Assets Buffer:
-        * 0x0 - Start of Assets blob
         * 0x403 - Menu Data (might be global or shared with other systems)
         * 0x544 - EDXD Asset
         * 0xe24 - Start of what is most likely the AI Scripting Table

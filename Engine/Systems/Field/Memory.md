@@ -31,7 +31,6 @@ This documentation is for aiding in the understanding of how the Field System ha
         * Pointer 0x20014 - List Data
         * Pointer 0x232e0 - Field Event sub-System
     * Assets Buffer:
-        * 0x0 - Assets Buffer starts here but SC Assets not fully determined yet
         * 0x1d00-0x2000 - Good indication of working with SC data; varies depending on purpose and structure
         * 0x5000+:
             * Special region shared with Battle System
