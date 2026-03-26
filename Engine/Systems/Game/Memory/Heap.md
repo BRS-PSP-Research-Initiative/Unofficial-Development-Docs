@@ -15,13 +15,18 @@
 * Purpose: Provide a reference to Game Heap Memory is Allocated
 * Allocation:
     * Pointer Table:
+        * Offset from 0 address on Heap:
+            * 0x00030 - Memory Card data
+            * 0x00598 - INSTDAT.VLD data
         * Offset from Production Heap:
             * 0x00004 - 4-byte sceDisplayWaitVblank Mode
             * 0x20014 - Menu Data
+            * 0x20018 - At3 Data
             * 0x20030 - 4-byte Glare Effect Callback
             * 0x20034 - 4-byte Blur Effect Callback
             * 0x20050 - 4-byte RecMsgTask Callback
             * 0x20054 - 4-byte GloDatTask Callback
+            * 0x206bc - Assets Data
             * 0x209dc - Unknown
             * 0x209e0 - 4-byte sceKernelSubIntr_handler_count
             * 0x209e4 - 4-byte Continue Game Flag
