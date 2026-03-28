@@ -29,10 +29,15 @@
     * StellaScript
         * General purpose scripting language used in multiple Systems
         * Each System has its own custom flavor tailored to its needs
+        * May be tied to StellaVM functionality but not fully confirmed yet
 * Notable Implementations:
-    * StellaVM - a virtual State Machine that handles System Asset Production based on both a Generic Production and System Specific Pipeline working in unison
+    * StellaVM:
+        * handles a multitude of tasks, leveraging a static pointer, jump tables, and code substitution on main thread
+        * known task types:
+            * heap allocation stage 1
+            * general callback tasks
+            * suspected rigging, camera and cutscene Production leveraging complex math related to Projection Matrix data 
 * Known Issues:
-    * Heap allocation implementation is broken in decomp code; will need to be implemented from scratch
     * Much of the engine code is heavily duplicated between Systems with either slight differences or no changes at all to implementation
 
 ---

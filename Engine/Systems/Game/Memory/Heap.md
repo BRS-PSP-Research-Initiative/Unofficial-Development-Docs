@@ -12,12 +12,23 @@
 
 ---
 
-* Purpose: Provide a reference to Game Heap Memory is Allocated
+* Purpose: Provide a reference to how Game Heap Memory is Allocated
 * Allocation:
     * Pointer Table:
         * Offset from 0 address on Heap:
+            * 0x00008 - Unknown
+            * 0x00018 - MS_DataSave data (if `page size` is 0)
+            * 0x0001c - MS_DataSave data (if `page size` is 2)
+            * 0x00020 - StellaVM Event Task callback function
             * 0x00030 - Memory Card data
+            * 0x00040 - StellaVM Heap Allocation Stage1 Callback function
+            * 0x00054 - Unknown
+            * 0x0005c - Unknown
+            * 0x000d8 - Unknown
+            * 0x00144 - Unknown flag
+            * 0x00318 - Flag of some type related to 0x8
             * 0x00598 - INSTDAT.VLD data
+            * 0x01000 - TransData data
         * Offset from Production Heap:
             * 0x00004 - 4-byte sceDisplayWaitVblank Mode
             * 0x20014 - Menu Data
