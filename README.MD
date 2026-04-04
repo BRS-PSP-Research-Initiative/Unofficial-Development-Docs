@@ -16,7 +16,7 @@
 
 ## Purposes
 
-* To share and document the inner workings of how Imageepoch, the Black Rock Shooter: the Game developer, designed it through clean room (no source code obtained or available) reverse engineering
+* To share and document the inner workings of how Imageepoch, the Black Rock Shooter: the Game developer, designed it through good old-fashioned reverse engineering.
 
 ---
 
@@ -26,7 +26,6 @@
 	* Systems - Specifications for individual systems as a whole entity
 	* Modules - Filetypes found within the systems (by extension)
 	* Formats - Structure of individual pieces of each module
-	* Specifications - Specifications for the engine itself
 * Data
 	* Regions - Region specific notes
 	* Discoveries - Things found that the developers may not have intended
@@ -52,5 +51,11 @@
 
 * must be in English
 * a brief summary of the changes including why it was changed
+
+---
+
+*AI DISCLOSURE: AI were used for some of the research done when it comes to technological concepts based on what I've observed in the decompiled code and for comparing the engine / developer designs to other developers from the time this Game was developed and released. Much of the details of this era of Japanese game development are still very fragmented between conflicting sources.
+
+Depending on needs, AI may end up being used to sort and organize my notes but that's currently being manually worked on as I go. Thanks for understanding.*
 
 ---
