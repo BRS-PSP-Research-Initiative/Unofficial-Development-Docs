@@ -54,8 +54,6 @@
 
 ---
 
-*AI DISCLOSURE: AI were used for some of the research done when it comes to technological concepts based on what I've observed in the decompiled code and for comparing the engine / developer designs to other developers from the time this Game was developed and released. Much of the details of this era of Japanese game development are still very fragmented between conflicting sources.
-
-Depending on needs, AI may end up being used to sort and organize my notes but that's currently being manually worked on as I go. Thanks for understanding.*
+*AI DISCLOSURE: AI were used for some of the research done when it comes to technological concepts based on what I've observed in the decompiled code and for comparing the engine / developer designs to other developers from the time this Game was developed and released. Much of the details of this era of Japanese game development are still very fragmented between conflicting sources. Depending on needs, AI may end up being used to sort and organize my notes but that's currently being manually worked on as I go. Thanks for understanding.*
 
 ---
