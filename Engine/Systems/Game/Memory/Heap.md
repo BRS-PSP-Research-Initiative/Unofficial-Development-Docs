@@ -17,6 +17,7 @@
     * Pointer Table:
         * Offset from 0 address on Heap:
             * 0x00008 - Unknown
+            * 0x0000c - 1-byte Possible Debug Mode Switch
             * 0x00018 - MS_DataSave data (if `page size` is 0)
             * 0x0001c - MS_DataSave data (if `page size` is 2)
             * 0x00020 - StellaVM Event Task callback function
@@ -31,7 +32,7 @@
             * 0x01000 - TransData data
         * Offset from Production Heap:
             * 0x00004 - 4-byte sceDisplayWaitVblank Mode
-            * 0x20014 - Menu Data
+            * 0x20014 - Save File on Memory Card Table
             * 0x20018 - At3 Data
             * 0x20030 - 4-byte Glare Effect Callback
             * 0x20034 - 4-byte Blur Effect Callback
@@ -42,9 +43,9 @@
             * 0x209e0 - 4-byte sceKernelSubIntr_handler_count
             * 0x209e4 - 4-byte Continue Game Flag
             * 0x209e8 - 8-byte Input Stream Delimiter
-            * 0x21a74 - 0x400-byte Player Character Data
             * 0x21528 - Copy of 0x21a10
             * 0x21a10 - 0x100-byte Projection Matrix Data
+            * 0x21a74 - 0x400-byte Player Character Data
 
 ---
 
