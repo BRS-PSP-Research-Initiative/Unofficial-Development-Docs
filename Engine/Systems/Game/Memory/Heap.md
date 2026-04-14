@@ -32,20 +32,32 @@
             * 0x01000 - TransData data
         * Offset from Production Heap:
             * 0x00004 - 4-byte sceDisplayWaitVblank Mode
-            * 0x20014 - Save File on Memory Card Table
-            * 0x20018 - At3 Data
+            * 0x20014 - 4-byte Save File on Memory Card Table
+            * 0x20018 - 4-byte At3 Data
+            * 0x2002c - 4-byte MS Callback Pointer (can change based on context)
             * 0x20030 - 4-byte Glare Effect Callback
             * 0x20034 - 4-byte Blur Effect Callback
+            * 0x20038 - 4-byte Stencil Buffer Table Entry (spec)
+            * 0x20044 - 4-byte 0x2002c Sanity Check Callback
+            * 0x20048 - 4-byte ResultBtlTask Callback
             * 0x20050 - 4-byte RecMsgTask Callback
             * 0x20054 - 4-byte GloDatTask Callback
-            * 0x206bc - Assets Data
+            * 0x20058 - 4-byte bscr Script Start (Battle)
+            * 0x20370 - 4-byte Stencil Buffer Heap (spec)
+            * 0x206bc - 4-byte Assets Data
+            * 0x20740 - 4-byte HP Table Pointer Start 
             * 0x209dc - Unknown
-            * 0x209e0 - 4-byte sceKernelSubIntr_handler_count
+            * 0x209e0 - 4-byte sceKernelSubIntr Handler Count
             * 0x209e4 - 4-byte Continue Game Flag
             * 0x209e8 - 8-byte Input Stream Delimiter
             * 0x21528 - Copy of 0x21a10
             * 0x21a10 - 0x100-byte Projection Matrix Data
             * 0x21a74 - 0x400-byte Player Character Data
+        * Offset from Assets Heap:
+            * 0x00080 - Unknown
+            * 0x01d4c - Enemy Script pointer (spec)
+            * 0x12074 - With other Offsets = Mask Flag
+            * 0x12110 - 4-byte Debug Memory Usage (by Divisor)
 
 ---
 
