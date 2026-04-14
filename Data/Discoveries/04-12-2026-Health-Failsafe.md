@@ -13,8 +13,9 @@
 
 ---
 
-* Date Found: 04/10/2026
-* Time: 8:00 AM CST (waiting on confirmation from Akuzakun)
+* Date Found: Unknown; Defender Glitch was known but no records available of when it was first discovered along with no previous tests or videos found
+* Date Tested: 04/10/2026
+* Time: 8:00 AM CST
 * Regions Affected: jpn, usa, eur
 * Description: During exploration of what the Defender Glitch could be used for, it was discovered that if a fight ended with Stella at 0 HP while Defender was used and held, instead of receiving a Game Over, she would transition to the next Phase (in Boss fights) or the Stage (Field) with 1 HP left.
 
@@ -41,5 +42,9 @@
 * This one is unique to the Rendering System:
     * Debug Camera? - 0x12c
 * PC HP can possibly be Negative Buffer Overflowed but the amount of time required would make it not worth it without another exploit found that would disable the failsafe entirely
+    * Failsafe code Snippet:
+     ```
+    health = (uint)((*(uint *)(id + ((int)hp >> 5) * 4 + 0x80) & 1 << (hp & 0x1f)) != 0);
+    ```
 
 ---
