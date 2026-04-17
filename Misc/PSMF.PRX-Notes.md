@@ -2,7 +2,7 @@
 
 ---
 
-*Copyright 2025 - Brad D*
+*Copyright 2026 - Brad D*
 
 *See LICENSE for copyright information.*
 
