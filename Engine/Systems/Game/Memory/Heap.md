@@ -45,14 +45,17 @@
             * 0x20058 - 4-byte bscr Script Start (Battle)
             * 0x20370 - 4-byte Stencil Buffer Heap (spec)
             * 0x206bc - 4-byte Assets Data
-            * 0x20740 - 4-byte HP Table Pointer Start 
+            * 0x20740 - 4-byte Combat Actor ID Table Start
+            * 0x20764 - 2-byte Combat Actor HP Table Start
             * 0x209dc - Unknown
             * 0x209e0 - 4-byte sceKernelSubIntr Handler Count
             * 0x209e4 - 4-byte Continue Game Flag
-            * 0x209e8 - 8-byte Input Stream Delimiter
-            * 0x21528 - Copy of 0x21a10
-            * 0x21a10 - 0x100-byte Projection Matrix Data
-            * 0x21a74 - 0x400-byte Player Character Data
+            * 0x209e8 - 4-byte PC ID
+            * 0x21538 - 0x64-byte Projection Matrix Data
+            * 0x2159c - 0x400-byte Player Character Data
+            * 0x21a10 - Copy of 0x21538
+            * 0x21a74 - Copy of 0x2159c
+            * 0x21e77 - 1-byte PC Alive Flag
         * Offset from Assets Heap:
             * 0x00080 - Unknown
             * 0x01d4c - Enemy Script pointer (spec)

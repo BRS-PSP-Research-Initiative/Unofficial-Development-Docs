@@ -41,5 +41,7 @@ This documentation is for aiding in the understanding of how the Battle System h
             * Special region shared with Field System
             * Frequently used for large Asset decompression
             * Can also act as temporary storage for parts of Assembly and Production
+    * BtRoot Data:
+        * 0x000e8 - BtEnActor
 
 ---
