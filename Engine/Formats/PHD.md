@@ -9,9 +9,15 @@
 *Please include this header and that license for any derivative works.*
 
 *NOTE: Only the documentation, tools and anything that's not directly a part of the game's data fall under this copyright. I don't claim any ownership of the game or any of its assets*
-
 ---
 
+* Name: Unnamed Proprietary Audio Format
+* Type: Audio Data
+* Extension: .phd
+* Purpose: Header portion for an associated PBD blob file.
+* Format information can be found [here](https://rewiki.miraheze.org/wiki/PSP_Audio_PHD_PBD_PEF)
+### All notes below this point are being left for historical purposes but no longer apply or are correct. The raw texture found was more a mistake in production than an indication of real format.
+---
 * Name: Production Header Data
 * Type: Production
 * Extension: .phd

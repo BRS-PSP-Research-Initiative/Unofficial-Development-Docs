@@ -9,7 +9,18 @@
 *Please include this header and that license for any derivative works.*
 
 *NOTE: Only the documentation, tools and anything that's not directly a part of the game's data fall under this copyright. I don't claim any ownership of the game or any of its assets*
+---
 
+* Name: Unnamed Proprietary Audio Format
+* Type: Audio Data
+* Extension: .pbd
+* Purpose: Binary portion containing multiple WAVE data audio blobs in relation to the tables from an associated PHD header file.
+* Format information can be found [here](https://rewiki.miraheze.org/wiki/PSP_Audio_PHD_PBD_PEF)
+* Recommended tools for extracting and converting audio:
+  * [Psound](https://www.zophar.net/utilities/psxutil/psound-soundreaver2.html) (Windows only but works great in a Windows 10 VM when on Linux or Mac)
+---
+
+### All notes below this point are being left for historical purposes but no longer apply or are correct. The raw texture found was more a mistake in production than an indication of real format.
 ---
 
 * This Format is not a singular format; it's used for a variety of different things based on context in the data

@@ -18,6 +18,9 @@
 * Header: XTC
 * Purpose: Render text on screen
 * Notes:
+  * (July 2026 Notes):
+    * Possibly an undocumented variant of the XTC comic book format used and created for some obscure web mangas from the time period of release; [source](https://github.com/CrazyCoder/crengine-ng/blob/main/crengine/docs/XtcFormat.md) *NOTE: spec sheet AI generated and most tools following suit; possibly incorrect but also outside scope to fully dissect the format*
+    * ImageEpoch was originally a digital art and 3D asset production studio before independent game development started, further making this a likely scenario
 	* Primarily related to user interface elements
 	* Files can vary in size on disc depending on region and language
 	* Text is allocated to the end of the data structure
