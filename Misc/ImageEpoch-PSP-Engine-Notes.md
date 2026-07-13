@@ -23,7 +23,7 @@
     * Named for the IeLibs and IePSPLibs strings found in binary
     * Heavy usage of CriWare middleware
     * (Proven false by Kotcrab; from a firmware update that I took was part of original binary) Scripted in Lua 5.1
-    * Debug strings in binary suggested that the standard GCC compiler that CriWare was built with was probably used to compile the game
+    * (Proven false by Nemoumbra; uses the SN Systems Compiler) Debug strings in binary suggested that the standard GCC compiler that CriWare was built with was probably used to compile the game
   * v1.5:
     * Memory Card game installation required over normal game streaming
     * Stella Engine asset management and streaming strings found in binary; hence hybrid nomenclature (similar to Unreal Engine)
