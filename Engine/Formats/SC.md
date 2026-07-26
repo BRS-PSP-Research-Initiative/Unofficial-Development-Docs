@@ -18,9 +18,9 @@
 * Header: SC
 * Purpose: Field Module Micro and Macro Control Center
 * System Equivalent:
-    * Battle System: BXCB (top level SC only)
+  * Battle System: BXCB (top level SC only)
 * Header Structure:
-	* 0x00 - (2-byte) Magic Number
+	* 0x00 - Has a dual purpose in this case: (2-byte) Magic Number; (4-byte) Float calculations base seed (needs further testing)
   * 0x02 - (1-byte) Hierarchy Attribute (by Bit Flag; rest are internals)
     * 0x80 (Bit7) - Not found in data on disc but most likely Debug / Test data
     * 0x40 (Bit6) - Field Event (Internal to 0x10)
@@ -41,15 +41,14 @@
     * 0x02 (Bit1) - Field Event PHD
     * 0x01 (Bit0) - Field Character
     * 0x00 - Field Event Unused SC data + types (FEVT_TEST_KAMI00) - There were multiple different data types unique to this section found here
-  * 0x00 - (4-byte) Can also be used for float calculations when certain masks are applied making both Magic Number and Hierarchy flag also mathematically intentional (needs further testing)
-	* 0x04 - Internal Container list with variable sizes depending on Hierarchy and data within
+  * 0x04 - Internal Container list with variable sizes depending on Hierarchy and data within
     * Each entry is an offset from the start of the container
     * 1st Entry can be 0x3c, 0x00, or any value between 0x10 and 0x20 - all of these must be greater than or equal to 0x10 and be evenly divisible by 0x10
     * List ends with either a 4-byte Null terminator (such as 0x0), a known Magic Number, or a value that is less than the previous entry
     * Duplication of entries are there to pad the table but do not seem to act as extra internal offsets as originally assumed
 * Notable Data Structures:
 	* 0x180:
-        * First major memory blob splits off from here
-        * Only applicable to the Character (FCHR) portions of Field Assets and not the Events (FEVT)
+    * First major memory blob splits off from here
+    * Only applicable to the Character (FCHR) portions of Field Assets and not the Events (FEVT)
 
 ---
