@@ -12,7 +12,7 @@
 
 ---
 
-* Name: Self Containment
+* Name: Stage Container
 * Type: Management / Data archive
 * Extension: .sc
 * Header: SC
@@ -21,30 +21,32 @@
     * Battle System: BXCB (top level SC only)
 * Header Structure:
 	* 0x00 - (2-byte) Magic Number
-    * 0x02 - (1-byte) Hierarchy Attribute
-		* Hierarchy (by Bit Flag; rest are internals)
-			* 0x80 (Bit8) - Unknown
-			* 0x40 (Bit7) - Field Event (Internal to 0x10)
-			* 0x3D - Field Object/Enemy (Probably destructable or interactive)
-			* 0x34 - Field Player Character
-			* 0x20 (Bit6) - Field Map EFC
-			* 0x1D - Field SUM00P
-			* 0x16 - Field Enemy
-			* 0x14 - Field Skill (?)
-			* 0x10 (Bit4) - Field Event/Map Top Level (Probably related to Cutscenes) - Can contain multiple 0x40 SC's / SSCR's
-			* 0x0A - Field SUM00
-			* 0x0B - Field SUM (Rest of SUM's use this + RID Gimmicks)
-			* 0x0C - Field Test
-			* 0x09 - Same as 0x03 (Multiple TEST FEVTs)
-			* 0x08 (Bit 3) - Field Character/Map Top Level (Can contain an internal STCM if a Map)
-			* 0x04 (Bit2) - Unknown
-			* 0x03 - Test Field Event with embedded Battle System data (FEVT_TEST_AOIK00)
-			* 0x02 (Bit1) - Field Event PHD
-			* 0x01 (Bit0) - Field Character
-			* 0x00 - Field Event Unused SC data + types (FEVT_TEST_KAMI00) - There were multiple different data types unique to this section found here
-	* 0x04 - Internal Container list start - Can be 0x3c; that's a bug that always needs to be read as 0x30
-	* 0x08 - First internal object ends here but not guaranteed to help with any extra extraction
-	* 0x10 - 0x28 - Relative chunk size for each internal SC structure; the binary modifies the value of each one at runtime
+  * 0x02 - (1-byte) Hierarchy Attribute (by Bit Flag; rest are internals)
+    * 0x80 (Bit7) - Not found in data on disc but most likely Debug / Test data
+    * 0x40 (Bit6) - Field Event (Internal to 0x10)
+    * 0x3D - Field Object/Enemy (Probably destructable or interactive)
+    * 0x34 - Field Player Character
+    * 0x20 (Bit5) - Field Map EFC
+    * 0x1D - Field SUM00P
+    * 0x16 - Field Enemy
+    * 0x14 - Field Skill (?)
+    * 0x10 (Bit4) - Field Event/Map Top Level (Probably related to Cutscenes) - Can contain multiple 0x40 SC's / SSCR's
+    * 0x0A - Field SUM00
+    * 0x0B - Field SUM (Rest of SUM's use this + RID Gimmicks)
+    * 0x0C - Field Test
+    * 0x09 - Same as 0x03 (Multiple TEST FEVTs)
+    * 0x08 (Bit 3) - Field Character/Map Top Level (Can contain an internal STCM if a Map)
+    * 0x04 (Bit2) - Unknown
+    * 0x03 - Test Field Event with embedded Battle System data (FEVT_TEST_AOIK00)
+    * 0x02 (Bit1) - Field Event PHD
+    * 0x01 (Bit0) - Field Character
+    * 0x00 - Field Event Unused SC data + types (FEVT_TEST_KAMI00) - There were multiple different data types unique to this section found here
+  * 0x00 - (4-byte) Can also be used for float calculations when certain masks are applied making both Magic Number and Hierarchy flag also mathematically intentional (needs further testing)
+	* 0x04 - Internal Container list with variable sizes depending on Hierarchy and data within
+    * Each entry is an offset from the start of the container
+    * 1st Entry can be 0x3c, 0x00, or any value between 0x10 and 0x20 - all of these must be greater than or equal to 0x10 and be evenly divisible by 0x10
+    * List ends with either a 4-byte Null terminator (such as 0x0), a known Magic Number, or a value that is less than the previous entry
+    * Duplication of entries are there to pad the table but do not seem to act as extra internal offsets as originally assumed
 * Notable Data Structures:
 	* 0x180:
         * First major memory blob splits off from here
