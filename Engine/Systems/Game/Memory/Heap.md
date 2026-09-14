@@ -45,6 +45,7 @@
             * 0x20030 - 4-byte Glare Effect Callback
             * 0x20034 - 4-byte Blur Effect Callback
             * 0x20038 - 4-byte Stencil Buffer Table Entry (spec)
+            * 0x2003c - 4-byte MenuStage Table Start
             * 0x20044 - 4-byte 0x2002c Sanity Check Callback
             * 0x20048 - 4-byte ResultBtlTask Callback
             * 0x20050 - 4-byte RecMsgTask Callback
@@ -71,6 +72,7 @@
         * Offset from Assets Heap:
             * 0x00044 - Unknown
             * 0x00080 - Unknown
+            * 0x00104 - 4-byte BXCB (?)
             * 0x00114 - Unknown
             * 0x00180 - Unknown Flag
             * 0x00920 - 4-byte Start to Camera Table (spec)
@@ -96,15 +98,18 @@
             * 0x00e18 - Unknown
             * 0x00e24 - Unknown
             * 0x00e28 - Unknown
+            * 0x00e38 - 4-byte Related to Scripting somehow
             * 0x00e6c - Unknown
             * 0x00e90 - Unknown
             * 0x00e9c - Unknown
             * 0x01d28 - Unknown
             * 0x01d4c - Enemy Script pointer (spec)
             * 0x01dd8 - 4-byte Unknown
+            * 0x02150 - Unknown
             * 0x021a4 - Unknown
             * 0x04c54 - Transformation / Rotation / Coordinates Float data pointer (not sure which one yet); possibly stores other types of data
             * 0x04ca8 - Unknown
+            * 0x05368 - Unknown
             * 0x05374 - Unknown
             * 0x05378 - Unknown
             * 0x05384 - Unknown

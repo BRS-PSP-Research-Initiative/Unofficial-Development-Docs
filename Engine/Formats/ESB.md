@@ -12,15 +12,15 @@
 
 ---
 
-* Tentative  Name: Effective Stealthy Binary
+* Name: Event System Binary blob
 * Type: Data
 * Extension: .esb
 * Header: None
-* Purpose: Unknown
+* Purpose: Contains arbitrary Event binary data
 * Notes:
 	* These are enigmatic, but EFPs/EFCs can contain multiple and their count is important; see EFP format docs for more information on this
 * Structure:
 	* 0x00 - 4-byte Size of file
 	* 0x04 - Unknown 4-byte value
-	* 0x08 - 20-byte filename
+	* 0x08 - 20-byte filename (often doesn't exist)
 ---

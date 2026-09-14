@@ -12,30 +12,19 @@
 
 ---
 
-* Name: Effects Format Pack
+* Name: Event Format Pack / Container
 * Type: Container
-* Extension: .efp
+* Extension: .efp / .efc
 * Header: EFP
-* Purpose: Stores multiple different types of data inside, most of which seem to be related to effects
-* Notes:
-	* Can contain multiple INSM mdls and PTMD ptms embedded with names
+* Purpose: Contains mostly Event System data for multiple major Systems
 * Structure:
+	* 0x04 - 4-byte Unknown Identifier
 	* 0x0c - 1-byte embedded esb count
-	* 0x0d - 1-byte embedded model count
-	* 0x0e - 1-byte embedded animation count
-	* 0x0f - 1-byte Index Value (?) - This value doesn't seem to correspond with any direct count so far
+	* 0x0d - 1-byte embedded mdl count
+	* 0x0e - 1-byte embedded anm count
+	* 0x0f - 1-byte Index Value in case of multiple EFCs being tied together (Example: `ef5600001.efc` and `eb506001.efc`)
 	* 0x10 - 4-byte Offset from 0x30 to first INSA structure
 	* 0x18 - 24-byte first internal INSM mdl or PTMD ptm name string
 	* 0x30 - Address of first internal INSM mdl structure
-
----
-
-* Name: Effects Format Container
-* Type: Container
-* Extension: .efc
-* Header: EFC
-* Purpose: Alternative version of EFP found heavily inside of SCs.
-* Notes:
-	* Originally thought a unique type but `BTL\CHR\BCHR_CAT00` contains an EFP with multiple ESB files inside
 
 ---

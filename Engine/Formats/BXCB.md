@@ -19,6 +19,9 @@
 * Purpose: Battle Module Control Center
 * System Equivalent:
     * Field System: SC
+* Notes:
+    * Binary doesn't just check Magic Header by characters like most formats; the Generic File Loader has a check for `0x42435842`, the binary representation
+    * Utilizes the PSP's builtin caching system for flushing data
 * Header Structure
 	* 0x04 - 4-byte File Size
 	* 0x0c - always 0x20
