@@ -33,7 +33,7 @@
 
 * Name: Packed Bitmap Data
 * Type: Asset Data
-* Extension: .pbd
+* Extension: .pbd / .pxd (how loader labels it in Game Binary)
 * Purpose: A complete texture blob consisting of three different sections
 	* Notes:
 		* First file found on 03/09/26 within the SYSTEM.VOL/font.lpk data as the final PBD file read in data structure

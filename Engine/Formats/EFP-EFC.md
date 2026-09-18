@@ -12,11 +12,16 @@
 
 ---
 
-* Name: Event Format Pack / Container
-* Type: Container
+* Name: Embedded Film framework
+* Type: Multimedia
 * Extension: .efp / .efc
-* Header: EFP
-* Purpose: Contains mostly Event System data for multiple major Systems
+* Header:
+	* EFC - Contains a Animation object
+	* EFP - Contains a Model object
+* Purpose: Contains the Animation, Camera, Actor and Audio Pointer Table portions of all in-engine Cutscenes
+* Notes:
+	* Full purpose discovered on 09/16/2026 in Game Binary
+	* Originally thought to be just VFX stuff (labeled as Effects File format)
 * Structure:
 	* 0x04 - 4-byte Unknown Identifier
 	* 0x0c - 1-byte embedded esb count
