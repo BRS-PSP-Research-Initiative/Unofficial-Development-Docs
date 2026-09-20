@@ -33,9 +33,9 @@
             * Don't contain CLUT (Color LookUp Table)
             * Still decompress texture_mode data
 * Header Structure:
-	* 0x08 - (1-byte) Compressed data start address (with an offset of 0x8 in most occurrences)
-    * 0x09 - (1-byte) Texture mode key - gets further processed into becoming the full key once other data has been decompressed
-	* 0x0c - (4-byte) Address to end of file or beginning of padding section (which may contain extra data); expect this to be around 0x400 off of what the file system shows for size
+  * 0x06 - (2-byte) Encrypted Size Key 1
+	* 0x08 - (1-byte) Seed flag for Decrypting Key 2
+  * 0x09 - (1-byte) Encrypted Size Key 2
 * Data Structure (by region)
     * CLUT
 

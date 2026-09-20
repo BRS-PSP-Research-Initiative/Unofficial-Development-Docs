@@ -20,9 +20,8 @@
 * Notes:
     * Modified version of Field Event sub-System flavor of SC Format
 * Header Structure:
-	* 0x06 - (4-byte) Address of first SSCR section
-    * 0x0C:
-        * 4-byte Offset + 0x06 - Address where PDK section ends
-        * Start of 0x4 separated Offset Table for each Section
-
+  * 0x04 - 2-Byte Table Size
+	* 0x06 - 2-Byte Offset to first SSCR section
+  * 0x08 4-byte Index * Offset + <0x06> - Address where PDK section ends with each Index being tied to a 8-byte entry in table
+  * 0x0c 4-byte Index * Offset - Size of section
 ---

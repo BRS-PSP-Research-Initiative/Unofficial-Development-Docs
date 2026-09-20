@@ -12,11 +12,11 @@
 
 ---
 
-* Name: Event System Binary blob
-* Type: Data
+* Name: Embedded film Sound Blob
+* Type: Multimedia (Audio)
 * Extension: .esb
 * Header: None
-* Purpose: Contains arbitrary Event binary data
+* Purpose: Table for connecting Audio (Formats: PBD, AT3 and AT3P) with the rest of the In-Engine Cutscene data
 * Notes:
 	* These are enigmatic, but EFPs/EFCs can contain multiple and their count is important; see EFP format docs for more information on this
 * Structure:

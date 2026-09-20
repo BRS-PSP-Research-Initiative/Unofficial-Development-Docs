@@ -12,16 +12,30 @@
 
 ---
 
-* Tentative Name: Something That Can Map
+* Name: Stage Type Contained Map data
+* Type: Container
 * Extension: .bin, .sm
 * Header: STCM
-* Purpose: Stores stage and map data
+* Purpose: Stores Stage and Map data
+* System Implementation Differences:
+  * Shared:
+  * 2/3 Parts of Disc Layout:
+  * bscr Script - contains implementation for loading and structuring some of the Map data
+  * Sky - contains the Skybox and possibly non-interactive elements like tall buildings, chains, etc
+  * Battle:
+    * Uses `.bin` extension
+    * Sky portion named Arena file name + `_sky` before extension
+    * 1/3 Parts of Disc Layout:
+      * Arena - where the fight takes place in
+  * Field (Stage):
+    * SC containers normally do not list extensions or original filenames in data but engine associates internal STCM's with `.sm` extension
+    * 1/3 Parts of Disc Layout:
+      * Ground - Similar to Arena but much larger scale (may also have different data structure within)
 * Notes:
-	* Originally found in decrypted and extracted Map VOLs under `GAMEDATA\BTL\MAP`
+  * Originally found in decrypted and extracted Map VOLs under `GAMEDATA\BTL\MAP`
+  * Parsed from Game Binary Generic Asset Loader:
+    * Arbitrary `.bin` files that do not have an `LPK` or `BXCB` Magic Header fallback to being checked as either a Map, an MDL or NULL data
 * Header Structure:
-    * 0x10 - Address to tail of table at 0x1c
-	* 0x1c - Variable length table starts here with a 0x04 offset between entries
-        * Each entry = mix of PTMD structures & other data types
-        * Length of Table = based on amount of embedded data sections
-
+  * 0x08 - Offset from <0x1c> to CLIM or next STCM section
+  * 0x1c - Offset to First Embedded Data section (usually PTMD)
 ---

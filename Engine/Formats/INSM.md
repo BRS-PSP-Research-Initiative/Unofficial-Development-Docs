@@ -41,14 +41,15 @@
 		* jump 3 - Address pointed to at jump 2 + 0x04
 		* jump 4 - Address pointed to at jump 3; should follow general Vertex Data Structure below with the Killswitch value becoming a delimiter for sections instead
 * Header Structure:
-	* 0x04 - 1-byte Model / Animation Count
-	* 0x05 - 1-byte Texture Count (only applicable to mdl files)
-	* 0x06 - 2-byte Unknown Value (could be an ID or unknown file type that's missing)
-	* 0x0c - 4-byte Vertex count (value + 1)
-	* 0x08 - Address to Unknown Data Section with possible model data; after rounding this, this gives a start region to start expecting offset shifts to happen
-	* 0x10 - Address to Unkown 4-byte Value
+	* 0x04 (Multi Use):
+		* 4-byte Chunk Size in bytes (How much data to read every every cycle while decrypting data)
+		* 1-byte Texture Load Stop; if != 1, there's no Texture data
+		* 0x05 - 1-byte Texture Count
+	* 0x08 - 4-byte Chunk Position in Buffer
+	* 0x0c - 4-byte Line Count with an offset of 1 every time the line starts with 0 (taken from Game Binary)
+	* 0x10 - Address to Unknown 4-byte Value
 	* 0x14 - Address to first model data structure
-	* 0x18 - Address to second model data structure. See notes above
+	* 0x18 - 4-byte Offset to First Section read into Memory by Game Engine
 	* 0x1c - Address to third model data structure
 	* 0x20 - Address to fourth model data structure
 	* 0x24 - Address to PTMD or alternative structures; Can also act as the point for observing and extracting Vertex Data

@@ -1,4 +1,4 @@
-# SCMP Model Container Docs
+# SCMP Container Format Docs
 
 ---
 
@@ -12,21 +12,18 @@
 
 ---
 
-* Name: Skeletal Container Missing Player
-* Type: Container / 3D Pipeline Data
+* Name: Stage Container MultiPlayer
+* Type: Container
 * Header: SCMP
-* Purpose: Possible unused Player Character model
+* Purpose: Designates Map and Field Character as part of scrapped Multiplayer mode
 * Notes:
-	* Seems to be the only SC container that doesn't have an SSCR section but instead contains an extra SCMP section in its place
-	* Contains 3 SCMP headers total
-	* Shares the same Namespace as the BRS model meaning it's probably a scrapped Player character
-	* The header suggests that there may have been a scrapped Multiplayer mode and this was the character for it
-	* Codenamed ZIG in the files
-	* Has almost as many bones as most of the BRS models and contains some Animation data (but not the same way to access it as most other models minus some equipment, gadgets and skills)
-	* The 0x20 math calculations (see my INSA notes on that part) for the second bone are bugged; their final result seems to be one of the few inconsistencies among the models
-* Structure:
-	* 0x04 - Offset of first SCMP / Internal Container instance - Main Container
-	* 0x08 - Offset of second SCMP / Internal Container instance - Mesh Container
-	* 0x0c - Offset of third SCMP / Internal Container instance - Armateur Container
-
+	* Found in multiple `MAP_D_STG_02` (New York) maps, suggesting that those were mostly designed with this mode in mind
+	* ZIG Multiplayer Character:
+		* Seems to be the only SC container that doesn't have an SSCR section but instead contains an extra SCMP section in its place
+		* Contains 3 SCMP headers total
+		* Shares the same Namespace as the BRS model (`_P_`)
+		* Has almost as many bones as most of the BRS models and contains some Animation data (but not the same way to access it as most other models minus some equipment, gadgets and skills)
+		* The 0x20 math calculations (see my INSA notes on that part) for the second bone are bugged; their final result seems to be one of the few inconsistencies among the models
+* Header Structure (mostly follows SC Format structure):
+  * 0x02 - (spec) Hierarchy flag not set in Data; gets set in Game Binary when parsing an SCMP within one of the New York (Stage 2) Maps
 ---

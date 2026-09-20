@@ -23,7 +23,7 @@
 	* Script Data values can be found in the padding data section; see Script structure section below
 	* Each script file has a somewhat different structure based on purpose
 	* May or may not use the same binary encoded structure as SSCR (Stage Script StellaScript flavor); has a hardcoded function in game binary that isn't shared with FLD implementations
-	* Script entries for coordinates and other number based systems have extra labels that were never translated to English, some of which are direct references to the ancient Chinese myth Journey to the West (uses `shift-jisx021` encoding)
+	* Script entries for coordinates and other number based systems have extra labels that were never translated to English, some of which are direct references to the ancient Chinese myth Journey to the West (uses `shift_jisx0213` encoding)
 	* Originally named Battle Module Script due to being found within BTL data but changed due to its usage within Stage Maps and a small handful of other places
 * Stage Map Specific Notes:
 	* Script function tier system:

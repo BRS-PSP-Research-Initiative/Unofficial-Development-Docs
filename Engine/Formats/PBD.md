@@ -13,7 +13,7 @@
 
 * Name: Unnamed Proprietary Audio Format
 * Type: Audio Data
-* Extension: .pbd
+* Extension: .pbd / .pxd (how loader labels it in Game Binary)
 * Purpose: Binary portion containing multiple WAVE data audio blobs in relation to the tables from an associated PHD header file.
 * Format information can be found [here](https://rewiki.miraheze.org/wiki/PSP_Audio_PHD_PBD_PEF)
 * Recommended tools for extracting and converting audio:
@@ -33,7 +33,7 @@
 
 * Name: Packed Bitmap Data
 * Type: Asset Data
-* Extension: .pbd / .pxd (how loader labels it in Game Binary)
+* Extension: .pbd
 * Purpose: A complete texture blob consisting of three different sections
 	* Notes:
 		* First file found on 03/09/26 within the SYSTEM.VOL/font.lpk data as the final PBD file read in data structure

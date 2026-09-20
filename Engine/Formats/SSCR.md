@@ -27,10 +27,23 @@
 		* Map Data contains exactly 3 SSCR scripts, consisting of 2 extra scripts:
 			* `res_header`/`res_buffer` - next SC section will contain at least 1 STCM Map Data File
 			* `init_scene` - bottom most script that can contain multiple `RCs` and have other data within
-* Structure:
-	* 0x0c - Scripted Data Section Start
-	* 0x10 - Scripted Data String End Address
-	* 0x14 - Scripted Data Section End Address
-	* 0x18 - Relative Offset to End of Data Chunk
+* Header Structure:
+  * 0x04 - 2-byte Masked Jump Value; checked against <0x08>
+  * 0x06 - 2-byte Table Size
+  * 0x08 - 2-byte SSCR Type Mask; if offset at <0x04> is not 0, jump to result
+	* 0x0c - 4-byte Scripted Data Section Start
+	* 0x10 - 4-byte Scripted Data String End Address
+	* 0x14 - 4-byte Scripted Data Section End Address
+  * 0x1c - 4-byte Debug Active Flag
+  * When FCHR SSCR:
+    * 0x18 - 4-byte Relative Offset to End of Data Chunk
     * 0x20-0x50 - Possible Padding before Script Names Table
+  * When in `fld_resident.bin`:
+    * 0x20 - 4-byte Offset to UI Text Section (similar to XTC)
+    * 0x24 - Same as 0x20
+    * 0x28 - 4-byte Offset to `dat_tbl` chunk
+    * 0x2c - 4-byte `dat_tbl` header ID (every 8 bytes will be this for the previous 4-byte chunk)
+    * 0x30 - 4-byte Offset to `lst_map` Names chunk
+    * 0x38 - 4-byte Offset to `lst_fchr` Names chunk
+    * 0x40 - 4-byte Offset to `lst_fevt` Names chunk
 ---
