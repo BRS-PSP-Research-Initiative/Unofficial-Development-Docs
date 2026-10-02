@@ -12,26 +12,35 @@
 
 ---
 
-* Tentative Name: Extensible Text Container
+* Name: eXtended Table Container
 * Type: Container
 * Extension: .xtc
 * Header: XTC
-* Purpose: Render text on screen
+* Purpose: Contains full structures and tables for various data within the game
 * Notes:
-  * (July 2026 Notes):
-    * Possibly an undocumented variant of the XTC comic book format used and created for some obscure web mangas from the time period of release; [source](https://github.com/CrazyCoder/crengine-ng/blob/main/crengine/docs/XtcFormat.md) *NOTE: spec sheet AI generated and most tools following suit; possibly incorrect but also outside scope to fully dissect the format*
-    * ImageEpoch was originally a digital art and 3D asset production studio before independent game development started, further making this a likely scenario
-	* Primarily related to user interface elements
-	* Files can vary in size on disc depending on region and language
-	* Text is allocated to the end of the data structure
+  * No longer valid but left for historical purposes:
+    * (July 2026 Notes):
+      * Possibly an undocumented variant of the XTC comic book format used and
+        created for some obscure web mangas from the time period of release;
+        [source](https://github.com/CrazyCoder/crengine-ng/blob/main/crengine/docs/XtcFormat.md)
+        *NOTE: spec sheet AI generated and most tools following suit;
+        possibly incorrect but also outside scope to fully dissect the format*
+      * Primarily related to user interface elements
+      * Files can vary in size on disc depending on region and language
+      * Text is allocated to the end of the data structure
+      * ImageEpoch was originally a digital art and 3D asset production studio before
+        independent game development started, further making this a likely scenario
 * Data Typings:
 	* \b(#) - Button text with event tied to it (such as changing a setting or zooming the camera in or out in the Gallery)
 	* \z(#) - Zone text; zones include time of day variants of game stages
 	* Untyped - Readable but not interactive
 * Header Structure:
-    * 0x04 - 4-byte File Size
-	* 0x08 - 4-byte X ID
-    * 0x10:
-        * if not 0xFF / 0x00 - 4-byte Address of main Data Blob
+  * 0x04 - 4-byte File Size
+  * `db_resident.lpk`:
+    * 0x08 - 4-byte Offset to Start of Data Chunk
+  * Unknown:
+	  * 0x08 - 4-byte X ID
+  * 0x10:
+    * if not 0xFF / 0x00 - 4-byte Address of main Data Blob
 
 ---
