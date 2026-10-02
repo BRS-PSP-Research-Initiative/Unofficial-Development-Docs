@@ -51,9 +51,10 @@
       * 0x20048 - 4-byte ResultBtlTask Callback
       * 0x20050 - 4-byte RecMsgTask Callback
       * 0x20054 - 4-byte GloDatTask Callback
-      * 0x20058 - 4-byte bscr Script Start (Battle)
+      * 0x20058 - 4-byte BTL VOL Archive Heap
       * 0x20370 - 4-byte Stencil Buffer Heap (spec)
       * 0x206bc - 4-byte Assets Heap
+      * 0x20720 - 4-byte Unknown
       * 0x20740 - 4-byte Combat Actor ID Table Start
       * 0x20764 - 2-byte Combat Actor HP Table Start
       * 0x2076c - Unknown Pointer used to jump to an Index-based entry in table
@@ -62,9 +63,9 @@
       * 0x209e0 - 4-byte sceKernelSubIntr Handler Count
       * 0x209e4 - 4-byte Continue Game Flag
       * 0x209e8 - 4-byte PC ID
-      * 0x21538 - 0x64-byte Projection Matrix Data
-      * 0x2159c - 0x400-byte Player Character Data
-      * 0x2199c - 4-byte Unknown
+      * 0x21538 - 0x64-byte Unknown Heap
+      * 0x2159c - 0x400-byte XTC Table Buffer Heap
+      * 0x2199c - 4-byte BTL VOL Current Start Idx
       * 0x21a10 - Copy of 0x21538
       * 0x21a74 - Copy of 0x2159c
       * 0x21e74 - 4-byte FCHR Data
@@ -75,6 +76,7 @@
       * 0x00014 - SC Clean flag
       * 0x00044 - Unknown
       * 0x00060 - 4-byte Start of SC Heap Table (separated by 0xc offset)
+      * 0x00078 - 4-byte EFC Heap
       * 0x00080 - Unknown
       * 0x00104 - 4-byte BCXB (?)
       * 0x00114 - Unknown
@@ -108,7 +110,7 @@
       * 0x00e9c - Unknown
       * 0x01d28 - Unknown
       * 0x01dc4 - Unknown
-      * 0x01dc8 - 4-byte Map bscr 0x340
+      * 0x01dc8 - 4-byte BTL VOL bscr Start
       * 0x01d4c - Enemy Script pointer (spec)
       * 0x01dd8 - 4-byte Unknown
       * 0x01e04 - 4-byte Enemy Group Stop
@@ -125,6 +127,9 @@
       * 0x053d4 - 4-byte Unknown Callback and Magic storage (offset 0x14 & 0x18)
       * 0x12074 - With other Offsets = Mask Flag
       * 0x12110 - 4-byte Debug Memory Usage (by Divisor)
+    * Offsets from BtResMng (Battle Task Resident Manager) Heap:
+      * 0x0001c - 4-byte Pack.VOL Heap
+      * 0x0007c - Variable-byte Asset Scratch Heap (Temporary memory for loading basic Asset Headers and whatnot)
 
 ---
 

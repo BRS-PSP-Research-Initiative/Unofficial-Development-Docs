@@ -1,4 +1,4 @@
-# SDOa Container Format Docs
+# SDOa Format Docs
 
 ---
 
@@ -12,17 +12,23 @@
 
 ---
 
-* Tentative Name: SoDa Of archives
-* Type: Container
+* Name: System Data Object array
+* Type: Command Center
 * Extension: None known
 * Header: SDOa
-* Purpose: Stores data related to interfaces but not fully sure the extent of these yet
+* System Equivalent:
+  * Battle: BXCB
+* Purpose: Configures and drives different parts of the LPK
 * Notes:
-	* Often found where XTC, XPN and PTMD files are found
-	* First discovered while diving through the menu archives
+  * Mostly found in System Interface implementations
 * Header Structure:
-	* 0x04 (2 bytes) - U ID
+	* 0x04 - 2-byte U ID
+  * 0x06 - 2-byte Embedded PTMDs Count
+  * `if_btlsys.lpk` (Top Level only)
+    * 0x5a0 - 4-byte Configuration Switchboard
+  * `if_rsdsys.lpk` (LPK offset <0x54> from Top Level)
+    * 0x1438 - 4-byte Configuration Switchboard
 
 * Notes on IDs
-    * U ID is shared with an associated PBD at 0x04
+    * U ID is shared with an associated DAT object at 0x04
 ---

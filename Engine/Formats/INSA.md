@@ -51,7 +51,7 @@
 			* 0x03
 				* Animation Data Structure starts at a variable address
 * Header Structure:
-	* 0x04 - 4-byte ID of some type
+	* 0x04 - 1-byte INSA (0x02) / INSM (0x01) ID
 	* 0x0c - The Shredder Pattern is in effect if both this and 0x20 are not 0 and have the same value
 	* 0x10 - Originally thought this was an offset but not sure now
 	* 0x1c - Offset from Header / Size of file

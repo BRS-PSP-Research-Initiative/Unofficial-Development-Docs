@@ -18,7 +18,9 @@
 * Header: RTDP
 * Purpose: Stores Battle and Engine System Data in a streamable format that allows for rapid Production and loading of contents within
 * Notes:
-    * Order of File Names related to stage of Production System and which Format does what based on which System VOL archive is used for
+  * Order of File Names related to stage of Production System and which Format does what based on which System VOL archive is used for
+  * SYSTEM.VOL loaded with a Global Pointer Table that references each individual file within
+  * BTL VOL archives stored as a single large object in memory with hard-coded offsets in Game Binary used to determine what data's being used when
 * Header Structure:
 	* 0x04 - 4-byte Offset to start of Encrypted Data section
 	* 0x08 - 4-byte Number of Encrypted Files within Archive
@@ -26,7 +28,7 @@
 	* 0x10 - 1-byte XOR Decryption Key
 	* 0x20 - File list starts here; each name takes up 32 bytes
 * File List Data Structure:
-    * 0x04 - 4-byte Data Offset from start of Address found at 0x04
-    * 0x08 - 4-byte Expected Data Size after Decryption
+  * 0x04 - 4-byte Data Offset from start of Address found at 0x04
+  * 0x08 - 4-byte Expected Data Size after Decryption
 
 ---

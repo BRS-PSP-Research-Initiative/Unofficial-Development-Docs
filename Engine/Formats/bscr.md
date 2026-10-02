@@ -32,15 +32,6 @@
 		* func02 - Interactive elements and objects functions (includes MOBS)
 		* func03 - Enemy Encounter related functions (may be tied to enmgrp.dat in `SYSTEM.VOL`)
 		* func04 - FEVT (Event), Mission and EVC related functions
-* Binary Implementation:
-    * Load bms script file (multistage process) (Still speculative for some of this):
-		* Allocate memory for entire data blob
-		* Split data blob and string blob of entire file into two separate pieces
-		* Pass both to script_loader method
-		* Dirty (use mask - & - math) to modify first 4-byte chunk (leader) of data blob
-		* Store string blob pointer address in second 4-byte chunk of data blob; this may not exist yet in memory until the next step
-		* Use Sony's default libheap allocator to allocate memory for the string blob
-		* NOTE: 0x5A is used for alignment padding and separating data chunks
 * Data Sections:
 	* Header
 	* String Data
@@ -53,10 +44,15 @@
 	* 0x06 - 32-byte script file string name; first byte begins with any Ascii character followed by a blank space and then the full name of the bms file in the archive to write the script to
 	* 0x24 - size of file
 	* 0x2c - Address of function string start (All of 0x34 is here but separated by 0x2c bytes from the next one)
+  * 0x30 - 4-byte Arbitrary Count (that gets manipulated based on Script Opcode read)
 	* 0x34 - Address of scripting payload (large blob of space-delimited string data)
 	* 0x38 - Size of chunk at 0x3c
 	* 0x3c - Offset to Implementation Chunk, padding or other file formats (these last 2 are probably related to left behind scripting code that doesn't do anything)
-	* 0x318 - If not 0, start of Map Script Implementation and previous 4-byte chunk is 0; can be System.pack version only if this is not at beginning of Implementation section
+  * 0x68 - 4-byte BCHR Script Flag
+  * `BTL/MAP` and sometimes in the pack file for other Systems (if not at Index 0 nor at beginning of Implementation section) only:
+    * 0x318 - If not 0, start of Map Script Implementation and previous 4-byte chunk is 0
+  * `BCHR_APL*.VOL` and `BCHR_CAT*.VOL`:
+    * <0x04> + 0x648 - `LAND_PROCESS` debug string that gets flushed
 * Script Data structure (starting from offsets at 0x2c to 0x34)
 	* 0x00 - 2-byte Offset to next script string chunk (up to where 0x34 points to)
 	* 0x02 - Unknown 2-byte value; usually 0xe0 or 0xe1 (but needs more testing)
@@ -72,4 +68,54 @@
 		* Table Entry structure (should apply to all other Tables in this section):
 			* 0x00 - Same 2-byte Magic Header as section start (used for each entry)
 			* 0x04 - 4-byte Table Entry Index
+---
+
+# StellaScript bscr Interpretation Notes 
+
+* Language Parsing Notes:
+  * Binary Data and String Data are treated as two different streams in loading mechanism
+  * Uses variable flags to drive interpreter
+  * Code Structure (by 1-byte position):
+    * 0x00 - Op Code (what action is being performed)
+    * 0x01 - Jump Code (move cursor forward or backwards)
+    * 0x02 - Jump Code / Parameter (can be either depending on opcode)
+* Op Code with Function Name:
+  * 0x02 - get_total
+  * 0x03 - get_difference
+  * 0x04 - get_product
+  * 0x05 - get_fraction
+  * 0x06 - get_modulo
+  * 0x08 - get_bitwise_mask
+  * 0x09 - get_bitwise_or
+  * 0x0a - get_bitwise_xor
+  * 0x0b - get_bitwise_left_shift_0x1f
+  * 0x0c - get_bitwise_right_shift_0x1f
+  * 0x0e - get_is_zero
+  * 0x11 - shift_cursor_forward_by_idx
+  * 0x12 - shift_cursor_backward_by_idx
+  * 0x13 - run_assembly_call_by_action
+  * 0x14 - throw_PCPU_MOVM_error
+  * 0x15 - throw_PCPU_LEAS_error
+  * 0x17 - throw_PCPU_PUSH_error
+  * 0x18 - set_interpreter_out_offset_0x04
+  * 0x19 - throw_PCPU_PUSHF_error
+  * 0x1a - populate_interpreter_out_tbl_entries
+  * 0x1b - test_interpreter_out_functions
+  * 0x1c - set_dynamic_byte_by_offset_0x03
+  * 0x1d - set_offset_0x03_by_dynamic_byte
+  * 0x70 - get_less_than
+  * 0x71 - get_less_than_or_equal
+  * 0x72 - get_greater_than
+  * 0x73 - get_greater_than_or_equal
+  * 0x74 - get_equal_to
+  * 0x75 - get_not_equal_to
+  * 0x80 - get_boolean
+  * 0x81 - recursively_reinterpret_script
+  * 0x82 - run_BTL_function
+  * 0x83 - flush_dynamic_bytes_with_count
+  * 0x84 - shift_script_read_start
+  * 0x85 - throw_PCPU_LABEL_error
+  * 0x86 - run_BTL_function_offset_0x100
+  * 0x87 - run_BTL_function
+  * 0x88 - run_BTL_function_offset_0x100
 ---
