@@ -42,5 +42,10 @@
 	  * 0x08 - 4-byte X ID
   * 0x10:
     * if not 0xFF / 0x00 - 4-byte Address of main Data Blob
+---
 
+* Special XTC's in `db_resident.lpk` (by Index):
+  * 0x00 - 0x02: First group of tables
+  * 0x05 - Seed table with 8-byte offset between entries
+  * 0x06 - 0x08: Second group of tables
 ---

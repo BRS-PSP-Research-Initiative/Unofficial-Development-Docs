@@ -18,20 +18,22 @@
 * Header: PTMD, PTM, PTMD-XP
 * Purpose: Contains bit encrypted texture and model data with the decryption keys inside of the main binary
 * Notes:
-    * Mostly debunked
-        * The compression file signature was left in the debug models and found using Signsearch (from the same developer of QuickBMS)
-        * This signature was stripped out of all texture files and was only found by complete accident
-        * Subject to scrutiny until further tests are performed:
-            * Imageepoch used the Dynamic Markov Compression algorithm written about [here](https://plg.uwaterloo.ca/~gvcormac/manuscripts/dmc.pdf)
-            * This format wasn't used much since its inception in 1986
-            * The Tentative Name was originally `Plot Thickens, My Dear` but feedback suggested I name this something more correct
-            * A 6MB texture file was compressed into 200KB
-        * Contains a PTR Texture file
-        * Assuming data is read as 2 byte chunks that get parsed with Bitwise OR of 4 and then moves forward two bytes until it hits 0000 or 0x50 byte chunks have been read
-    * From Eboot.bin decompilation
-        * 2D Assets
-            * Don't contain CLUT (Color LookUp Table)
-            * Still decompress texture_mode data
+  * Mostly debunked
+    * The compression file signature was left in the debug models and found using Signsearch (from the same developer of QuickBMS)
+    * This signature was stripped out of all texture files and was only found by complete accident
+    * Subject to scrutiny until further tests are performed:
+      * Imageepoch used the Dynamic Markov Compression algorithm written about [here](https://plg.uwaterloo.ca/~gvcormac/manuscripts/dmc.pdf)
+      * This format wasn't used much since its inception in 1986
+      * The Tentative Name was originally `Plot Thickens, My Dear` but feedback suggested I name this something more correct
+      * A 6MB texture file was compressed into 200KB
+    * Contains a PTR Texture file
+    * Assuming data is read as 2 byte chunks that get parsed with Bitwise OR of 4 and then moves forward two bytes until it hits 0000 or 0x50 byte chunks have been read
+  * From Eboot.bin decompilation
+    * 2D Assets
+      * Don't contain CLUT (Color LookUp Table)
+      * Still decompress texture_mode data
+    * PTMDs within EFCs do not get a Magic Header check; they are always assumed to be at a certain offset with the Encrypted Size Keys being used as a tell
+
 * Header Structure:
   * 0x06 - (2-byte) Encrypted Size Key 1
 	* 0x08 - (1-byte) Seed flag for Decrypting Key 2

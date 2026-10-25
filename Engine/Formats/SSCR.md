@@ -34,7 +34,7 @@
 	* 0x0c - 4-byte Scripted Data Section Start
 	* 0x10 - 4-byte Scripted Data String End Address
 	* 0x14 - 4-byte Scripted Data Section End Address
-  * 0x1c - 4-byte Debug Active Flag
+  * 0x1c - 4-byte Debug Table Count; if 0, Debug not active
   * When FCHR SSCR:
     * 0x18 - 4-byte Relative Offset to End of Data Chunk
     * 0x20-0x50 - Possible Padding before Script Names Table

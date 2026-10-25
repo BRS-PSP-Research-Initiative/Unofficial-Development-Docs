@@ -17,7 +17,7 @@
 * Extension: .bms
 * Header: bscr
 * System Equivalent:
-    * Field System: Stage Map bscr
+  * Field System: Stage Map bscr
 * Purpose: General purpose main binary-encoded StellaScript implementation
 * Notes:
 	* Script Data values can be found in the padding data section; see Script structure section below
@@ -118,7 +118,7 @@
   * 0x83 - flush_dynamic_bytes_with_count
   * 0x84 - shift_script_read_start
   * 0x85 - throw_PCPU_LABEL_error
-  * 0x86 - run_BTL_function_offset_0x100 (never gets called in retail scripts)
+  * 0x86 - run_BTL_function_offset_0x100 (never gets called in retail scripts 
   * 0x87 - run_BTL_function
   * 0x88 - run_BTL_function_offset_0x100
 ---
