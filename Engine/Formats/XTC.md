@@ -46,6 +46,8 @@
 
 * Special XTC's in `db_resident.lpk` (by Index):
   * 0x00 - 0x02: First group of tables
+  * 0x03: Skill ID Table related
   * 0x05 - Seed table with 8-byte offset between entries
   * 0x06 - 0x08: Second group of tables
+  * 0x09: INSTDAT.VLD Decryption Key
 ---

@@ -23,10 +23,11 @@
   * Mostly found in System Interface implementations
 * Header Structure:
 	* 0x04 - 2-byte U ID
-  * 0x06 - 2-byte Embedded PTMDs Count
   * `if_btlsys.lpk` (Top Level only)
+    * 0x06 - 2-byte Embedded PTMDs Count
     * 0x5a0 - 4-byte Configuration Switchboard
   * `if_rsdsys.lpk` (LPK offset <0x54> from Top Level)
+    * 0x06 - 2-byte UI Object Heap Allocation Seed
     * 0x1438 - 4-byte Configuration Switchboard
 
 * Notes on IDs
